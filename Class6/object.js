@@ -35,3 +35,4 @@ const st5 = {
   },
 };
 console.log(st5.getFullname()); //Porntip Dee
+
