@@ -27,6 +27,7 @@ function findArraySummary(array) {
 }
 
 function findArraySummary2(array) {
+  if (arr === null || arr === undefined) return;
   let min = array[0],
     max = array[0],
     sum = 0,
@@ -36,8 +37,8 @@ function findArraySummary2(array) {
     if (max < data) max = data;
     sum += data;
   }
-  avg = sum/array.length
-  return {min: min, max: max, sum: sum, avg: avg}
+  avg = sum / array.length;
+  return { min: min, max: max, sum: sum, avg: avg };
 }
 
 console.log(findArraySummary(arr));
