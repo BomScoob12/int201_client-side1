@@ -1,7 +1,7 @@
 const nums = [1, 2, 3, 4, 5, 6, 7, 8];
 const obj = {
     isbn : 12345,
-    title : 'JavaScript',
+    title : 'JavaScriptBook',
     price : 450,
     author : {
         firstname: 'Gog',
@@ -26,3 +26,10 @@ console.log(getAuthorName()); // Mr. Gog Kok
 const {author : {firstname: fname, lastname: lname}} = obj;
 console.log(fname, lname); // Gog Kok
 console.assert(fname === 'player1', 'fname is not Gog');
+
+console.log("--------")
+
+const {isbn, title, ...notUsed} = obj
+console.log(isbn)
+console.log(title)
+console.log(notUsed)

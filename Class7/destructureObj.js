@@ -30,7 +30,6 @@ for (const std of arrayOfStd) {
   console.log(std);
   console.log(`id : ${id}`);
   console.log(`name : ${name}`);
-  console.log(`id : ${id}`);
   console.log(`sports : ${sports}`)
   console.log(`not used [hobby] for display: `, hobbyNotused);
   console.log(`not used [properties] for display: `, notused);

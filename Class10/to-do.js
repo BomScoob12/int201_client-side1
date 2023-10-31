@@ -42,7 +42,7 @@ function TodoManagement() {
     if (index == -1) return 'Failed';
     else {
       todos.splice(findIndexTodo(searchId), 1);
-      return 'success'
+      return 'success';
     }
   }
 

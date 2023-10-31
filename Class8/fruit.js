@@ -23,6 +23,7 @@ const sellProduct = [
 // return totalSelling
 const totalSell = sellProduct.reduce(
   (total, element) => total + element.price * element.sell,
+  //default value of accomulate
   0
 )
 console.log(totalSell)
