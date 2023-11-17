@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do list</title>
+    <style>
+      body {
+        margin: 0;
+        font: 2em sans-serif;
+        border: 2px solid blue;
+      }
+      #listTodo ul li p{
+        display: inline;
+        margin: 10px;
+        padding: 10px;
+      }
+      #listTodo ul li>p.not-done {
+        text-decoration: none;
+      }
+      #listTodo ul li>p.done {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>To-do application</h1>
+    <div id="addTodo">
+        <h2>Add youir Todo:</h2>
+        <input type="text" placeholder="Input your task" id="todoDesc" />
+        <button id="addBtn" onclick="">Submit</button>
+    </div>
+
+    <div id="listTodo">
+      <ul>
+        <li>
+            <p class="not-done">testListNotdoneYet</p>
+            <button onclick="">done</button>
+            <button onclick="">remove todo</button>
+        </li>
+        <li>
+            <p class="done">testList Done</p>
+            <button onclick="">done</button>
+            <button onclick="">remove todo</button>
+        </li>
+      </ul>
+    </div>
+
+    <div id="summaryTodo">
+        <p id="done"></p>
+        <p id="notDone"></p>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
