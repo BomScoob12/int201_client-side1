@@ -15,11 +15,15 @@
         margin: 10px;
         padding: 10px;
       }
-      #listTodo ul li>p.not-done {
+      #listTodo ul li.not-done {
         text-decoration: none;
       }
-      #listTodo ul li>p.done {
+      #listTodo ul li.done {
         text-decoration: line-through;
+      }
+      button {
+        margin: 5px;
+        padding: 10px;
       }
     </style>
   </head>
@@ -28,28 +32,15 @@
     <div id="addTodo">
         <h2>Add youir Todo:</h2>
         <input type="text" placeholder="Input your task" id="todoDesc" />
-        <button id="addBtn" onclick="">Submit</button>
+        <button id="addBtn" onclick="addNewList()">Submit</button>
     </div>
 
-    <div id="listTodo">
-      <ul>
-        <li>
-            <p class="not-done">testListNotdoneYet</p>
-            <button onclick="">done</button>
-            <button onclick="">remove todo</button>
-        </li>
-        <li>
-            <p class="done">testList Done</p>
-            <button onclick="">done</button>
-            <button onclick="">remove todo</button>
-        </li>
-      </ul>
-    </div>
+    <div id="listTodo"></div>
 
     <div id="summaryTodo">
         <p id="done"></p>
         <p id="notDone"></p>
     </div>
-    <script type="module" src="main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
