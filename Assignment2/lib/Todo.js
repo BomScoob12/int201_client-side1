@@ -1,7 +1,7 @@
 class Todo {
     static runningId = 1
-    constructor(desc, done = false) {
-        this.id = Todo.runningId++
+    constructor(id, desc, done = false) {
+        this.id = id
         this.description = desc
         this.done = done
     }

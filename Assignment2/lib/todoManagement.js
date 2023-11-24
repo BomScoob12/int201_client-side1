@@ -4,7 +4,7 @@ function todoManagement() {
   let todos = new Array()
 
   function addTodo(desc) {
-    const newTodo = new Todo(desc)
+    const newTodo = new Todo(Todo.runningId++, desc)
     todos.push(newTodo)
     return newTodo.id
     //return Id of todos
