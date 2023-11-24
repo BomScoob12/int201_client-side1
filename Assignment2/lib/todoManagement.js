@@ -1,4 +1,4 @@
-const Todo = require('./Todo')
+import Todo from './Todo.js'
 
 function todoManagement() {
   let todos = new Array()
@@ -7,7 +7,6 @@ function todoManagement() {
     const newTodo = new Todo(Todo.runningId++, desc)
     todos.push(newTodo)
     return newTodo.id
-    //return Id of todos
   }
 
   function findTodo(searchId) {
@@ -31,6 +30,13 @@ function todoManagement() {
     }
   }
 
+  function setItemToDone(doneId) {
+    const indexOfTodo = findIndexTodo(doneId)
+    if(todos[indexOfTodo] != -1) {
+      todos[indexOfTodo].setDone(true)
+    }
+  }
+
   function getTodos() {
     return todos
   }
@@ -51,6 +57,7 @@ function todoManagement() {
     findTodo,
     findIndexTodo,
     removeTodo,
+    setItemToDone,
     getTodos,
     getNumberOfDone,
     getNumberOfNotDone,
@@ -58,4 +65,4 @@ function todoManagement() {
   }
 }
 
-module.exports = { todoManagement }
+export default todoManagement
