@@ -27,7 +27,9 @@ function notDoneButtonHandler(event) {
    
 }
 
-function removeButtonHandler() {}
+function removeButtonHandler(event) {
+
+}
 
 showNumberOfDone(manageTodo.getNumberOfDone())
 showNumberOfNotDone(manageTodo.getNumberOfNotDone())
