@@ -11,11 +11,16 @@ function showTodoItem(newId, newDesc) {
   const btn2 = document.createElement('button')
   btn1.innerText = 'Not Done'
   btn2.innerText = 'remove'
-  btn1.setAttribute('onclick', 'setTaskDone()')
-  btn2.setAttribute('onclick', 'deleteTaskList()')
+  btn1.setAttribute('id', 'statusBtn')
+  btn2.setAttribute('id', 'removeBtn')
   newListDiv.append(btn1)
   newListDiv.append(btn2)
   listTodoElement.appendChild(newListDiv)
+}
+
+function removeTodoItem(removeId) {
+  const findDivItem = listTodoElement.querySelector(`#${removeId}`)
+  listTodoElement.removeChild(findDivItem)
 }
 
 function showNumberOfDone(numberOfDone) {
@@ -30,6 +35,7 @@ function showNumberOfNotDone(numberOfNotDone) {
 
 export {
   showTodoItem,
+  removeTodoItem,
   showNumberOfDone,
   showNumberOfNotDone
 }

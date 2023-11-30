@@ -1,10 +1,10 @@
 import Todo from './Todo.js'
-
+// const Todo = require ('./Todo.js') //!test
 function todoManagement() {
   let todos = new Array()
 
   function addTodo(desc) {
-    const newTodo = new Todo(Todo.runningId++, desc)
+    let newTodo = new Todo(Todo.runningId++, desc)
     todos.push(newTodo)
     return newTodo.id
   }
@@ -32,8 +32,11 @@ function todoManagement() {
 
   function setItemToDone(doneId) {
     const indexOfTodo = findIndexTodo(doneId)
-    if(todos[indexOfTodo] != -1) {
+    if(todos[indexOfTodo] == -1) {
+      console.error('Can not find todo!')
+    } else {
       todos[indexOfTodo].setDone(true)
+      console.log(todos[indexOfTodo])
     }
   }
 
@@ -64,5 +67,5 @@ function todoManagement() {
     clearTodo
   }
 }
-
+// module.exports = {todoManagement} //! test
 export default todoManagement

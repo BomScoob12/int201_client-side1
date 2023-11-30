@@ -14,6 +14,7 @@ console.log(manageTodo.addTodo('Blaaaaa3'))
 console.log(manageTodo.addTodo('Blaaaaa4'))
 
 manageTodo.findTodo(2).setDone(true)
+console.log(manageTodo.findIndexTodo(3) + 'Blaaaa')
 
 console.log(manageTodo.getTodos())
 console.log(manageTodo.getNumberOfDone())
