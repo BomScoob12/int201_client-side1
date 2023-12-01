@@ -8,7 +8,7 @@ const doSomething = (e) => {
   console.log(`Good bye, ${e.target.id}`)
 }
 
-// * event working by order
+// ? event working by order
 // order 1
 submitButton.addEventListener('click', (e) => {
   console.log(`hello, ${e.target.id}`)
@@ -17,4 +17,5 @@ submitButton.addEventListener('click', (e) => {
 submitButton.addEventListener('click', doSomething)
 
 //remove event listener
+// ! remove should be function named, not an anonymouse function
 submitButton.removeEventListener('click', doSomething)
