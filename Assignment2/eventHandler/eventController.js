@@ -16,22 +16,24 @@ function addTodoHandler() {
     showTodoItem(newTodoId, inputValue)
     const statusBtn = document.getElementById('statusBtn')
     const removeBtn = document.getElementById('removeBtn')
-    statusBtn.addEventListener('click', (event) => notDoneButtonHandler(event))
-    removeBtn.addEventListener('click', (event) => removeButtonHandler(event))
+    statusBtn.addEventListener('click', notDoneButtonHandler)
+    removeBtn.addEventListener('click', removeButtonHandler)
   } else {
     alert('Invalid input!!!')
   }
+  showNumberOfDone(manageTodo.getNumberOfDone())
+  showNumberOfNotDone(manageTodo.getNumberOfNotDone())
 }
 
 function notDoneButtonHandler(event) {
-   
+  showNumberOfDone(manageTodo.getNumberOfDone())
+  showNumberOfNotDone(manageTodo.getNumberOfNotDone())
 }
 
 function removeButtonHandler(event) {
-
+  showNumberOfDone(manageTodo.getNumberOfDone())
+  showNumberOfNotDone(manageTodo.getNumberOfNotDone())
 }
 
-showNumberOfDone(manageTodo.getNumberOfDone())
-showNumberOfNotDone(manageTodo.getNumberOfNotDone())
 
 export { addTodoHandler }
