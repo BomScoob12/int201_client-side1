@@ -39,6 +39,7 @@ function notDoneButtonHandler(event) {
   const todoId = parentElement.getAttribute('id')
   //! becareful the type of data that return
   console.log('Type of TodoId:', typeof todoId, 'value of todoId :', todoId)
+  console.log(Number(todoId))
   manageTodo.setItemToDone(Number(todoId))
   const target = event.target
   target.innerHTML = 'Done'
@@ -64,12 +65,11 @@ function updateStatus() {
 // handle client
 function loadHandler() {
   const todoStorage = JSON.parse(localStorage.getItem('userTodos'))
-  if (
-    todoStorage.length !== 0 ||
-    todoStorage !== null ||
-    todoStorage !== undefined
-  ) {
+  if (todoStorage === null || todoStorage === undefined) {
+    console.log('not have todo local')
+  } else {
     manageTodo.loadTodos(todoStorage)
+    console.log(todoStorage)
     const todos = manageTodo.getTodos()
     console.log(todos)
     todos.forEach((todo) => {
@@ -81,7 +81,6 @@ function loadHandler() {
 }
 
 function beforeUnloadHandler(event) {
-  event.preventDefault()
   localStorage.setItem('userTodos', JSON.stringify(manageTodo.getTodos()))
   manageTodo.clearTodo()
 }
