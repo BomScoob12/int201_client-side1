@@ -5,7 +5,11 @@ function todoManagement() {
 
   function addTodo(desc) {
     let newTodo = new Todo(Todo.runningId++, desc)
+    while (todos.some(todo => todo.id === newTodo.id)) {
+      newTodo.id = Todo.runningId++;
+    }
     todos.push(newTodo)
+    console.log(todos)
     return newTodo.id
   }
 
@@ -15,9 +19,7 @@ function todoManagement() {
   }
 
   function findIndexTodo(searchId) {
-    const returnIndex = todos.findIndex(
-      (element) => searchId === element.id
-    )
+    const returnIndex = todos.findIndex((element) => searchId === element.id)
     return returnIndex
   }
 
@@ -32,11 +34,11 @@ function todoManagement() {
 
   function setItemToDone(doneId) {
     const indexOfTodo = findIndexTodo(doneId)
-    if(todos[indexOfTodo] == -1) {
+    if (todos[indexOfTodo] == -1) {
       console.error('Can not find todo!')
     } else {
       todos[indexOfTodo].setDone(true)
-      console.log("DONE!!!!!" ,todos[indexOfTodo])
+      console.log('DONE!!!!!', todos[indexOfTodo])
     }
   }
 
@@ -44,20 +46,21 @@ function todoManagement() {
     return todos
   }
 
-  function getNumberOfDone(){
+  function getNumberOfDone() {
     return todos.filter((todo) => todo.done === true).length
   }
 
-  function getNumberOfNotDone(){
+  function getNumberOfNotDone() {
     return todos.filter((todo) => todo.done === false).length
   }
 
   //client handeling
   function loadTodos(userTodo) {
-    todos = userTodo
+    todos = userTodo.map(todoData => new Todo(todoData.id, todoData.description, todoData.done))
+    console.log(todos)
   }
 
-  function clearTodo(){
+  function clearTodo() {
     todos = new Array()
   }
   return {
@@ -70,7 +73,7 @@ function todoManagement() {
     getNumberOfDone,
     getNumberOfNotDone,
     loadTodos,
-    clearTodo
+    clearTodo,
   }
 }
 // module.exports = {todoManagement} //! test

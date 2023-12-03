@@ -69,9 +69,7 @@ function loadHandler() {
     console.log('not have todo local')
   } else {
     manageTodo.loadTodos(todoStorage)
-    console.log(todoStorage)
     const todos = manageTodo.getTodos()
-    console.log(todos)
     todos.forEach((todo) => {
       showTodoItem(todo.id, todo.description, todo.done)
       addEventButton(todo.id)
