@@ -52,6 +52,11 @@ function todoManagement() {
     return todos.filter((todo) => todo.done === false).length
   }
 
+  //client handeling
+  function loadTodos(userTodo) {
+    todos = userTodo
+  }
+
   function clearTodo(){
     todos = new Array()
   }

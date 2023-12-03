@@ -33,7 +33,6 @@ function notDoneButtonHandler(event) {
   console.log(parentElement)
   const todoId = parentElement.getAttribute('id')
   //! becareful the type of data that return
-  // console.log(typeof (todoId))
   manageTodo.setItemToDone(Number(todoId))
   updateStatus()
 }
@@ -54,5 +53,19 @@ function updateStatus(){
   showNumberOfNotDone(manageTodo.getNumberOfNotDone())
 }
 
+// handle client
+function loadHandler(){
+  const todos = localStorage.getItem('userTodos')
+  console.log(todos)
+  console.log(JSON.parse(todos))
+}
 
-export { addTodoHandler }
+function beforeUnloadHandler(event){
+  event.preventDefault()
+  localStorage.setItem('userTodos', JSON.stringify(manageTodo.getTodos()))
+  manageTodo.clearTodo()
+}
+
+export { addTodoHandler,
+loadHandler,
+beforeUnloadHandler }
