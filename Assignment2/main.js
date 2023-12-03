@@ -5,7 +5,7 @@ import {
 } from './eventHandler/eventController.js'
 
 window.addEventListener('load', loadHandler)
-window.addEventListener('beforeunload', beforeUnloadHandler)
+window.addEventListener('onbeforeunload', beforeUnloadHandler)
 
 const addBtn = document.getElementById('addBtn')
 addBtn.addEventListener('click', addTodoHandler)

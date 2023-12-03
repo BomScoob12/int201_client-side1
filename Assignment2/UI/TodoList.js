@@ -2,17 +2,22 @@
 const listTodoElement = document.getElementById('listTodo')
 const summaryTodo = document.getElementById('summaryTodo')
 
-function showTodoItem(newId, newDesc) {
+function showTodoItem(id, description, done = false) {
   const newListDiv = document.createElement('div')
   newListDiv.setAttribute('class', 'todoItem')
-  newListDiv.setAttribute('id', newId)
-  newListDiv.innerHTML = `<p>${newDesc}</p>`
+  newListDiv.setAttribute('id', id)
+  newListDiv.innerHTML = `<p>${description}</p>`
   const btn1 = document.createElement('button')
   const btn2 = document.createElement('button')
-  btn1.innerText = 'Not Done'
+  if(done){
+    btn1.innerHTML = 'Done'
+    btn1.setAttribute('class', 'status-done')
+  } else {
+    btn1.innerText = 'Not Done'
+    btn1.setAttribute('class', 'status-notdone')
+  }
   btn2.innerText = 'remove'
-  btn1.setAttribute('id', 'statusBtn')
-  btn2.setAttribute('id', 'removeBtn')
+  btn2.setAttribute('class', 'removeBtn')
   newListDiv.append(btn1)
   newListDiv.append(btn2)
   listTodoElement.appendChild(newListDiv)
@@ -20,12 +25,10 @@ function showTodoItem(newId, newDesc) {
 
 function removeTodoItem(removeId) {
   const arrayTodos = Array.from(listTodoElement.children)
-  console.log(arrayTodos)
   for (let temp of arrayTodos) {
     if (temp.getAttribute('id') == removeId) {
-      console.log('This is remove element', temp)
+      console.log('REMOVED!!!', temp)
       listTodoElement.removeChild(temp)
-      console.log('remove success.')
     }
   }
 }

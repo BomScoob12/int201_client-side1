@@ -36,7 +36,7 @@ function todoManagement() {
       console.error('Can not find todo!')
     } else {
       todos[indexOfTodo].setDone(true)
-      console.log(todos[indexOfTodo])
+      console.log("DONE!!!!!" ,todos[indexOfTodo])
     }
   }
 
@@ -69,6 +69,7 @@ function todoManagement() {
     getTodos,
     getNumberOfDone,
     getNumberOfNotDone,
+    loadTodos,
     clearTodo
   }
 }
