@@ -19,24 +19,25 @@ function showTodoItem(newId, newDesc) {
 }
 
 function removeTodoItem(removeId) {
-  const findDivItem = listTodoElement.querySelector(`#${removeId}`)
-  listTodoElement.removeChild(findDivItem)
+  const arrayTodos = Array.from(listTodoElement.children)
+  console.log(arrayTodos)
+  for (let temp of arrayTodos) {
+    if (temp.getAttribute('id') == removeId) {
+      console.log('This is remove element', temp)
+      listTodoElement.removeChild(temp)
+      console.log('remove success.')
+    }
+  }
 }
 
 function showNumberOfDone(numberOfDone) {
-    const doneMessage = summaryTodo.querySelector('#done')
-    doneMessage.innerHTML = `Number of done : ${numberOfDone}`
+  const doneMessage = summaryTodo.querySelector('#done')
+  doneMessage.innerHTML = `Number of done : ${numberOfDone}`
 }
 
 function showNumberOfNotDone(numberOfNotDone) {
-    const notDoneMessage = summaryTodo.querySelector('#notDone')
-    notDoneMessage.innerHTML = `Number of not done : ${numberOfNotDone}`
+  const notDoneMessage = summaryTodo.querySelector('#notDone')
+  notDoneMessage.innerHTML = `Number of not done : ${numberOfNotDone}`
 }
 
-export {
-  showTodoItem,
-  removeTodoItem,
-  showNumberOfDone,
-  showNumberOfNotDone
-}
-
+export { showTodoItem, removeTodoItem, showNumberOfDone, showNumberOfNotDone }

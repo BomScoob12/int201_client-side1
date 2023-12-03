@@ -3,34 +3,53 @@ import {
   showNumberOfDone,
   showNumberOfNotDone,
   showTodoItem,
+  removeTodoItem,
 } from '../UI/TodoList.js'
 const manageTodo = todoManagement()
 const addTodoDiv = document.getElementById('addTodo')
-const listTodoElement = document.getElementById('listTodo')
 
 function addTodoHandler() {
   const inputValue = addTodoDiv.querySelector('#todoDesc').value
-  console.log(inputValue)
   if (inputValue) {
     const newTodoId = manageTodo.addTodo(inputValue)
     showTodoItem(newTodoId, inputValue)
-    const statusBtn = document.getElementById('statusBtn')
-    const removeBtn = document.getElementById('removeBtn')
+    //* searching div by using id
+    const todoItem = document.getElementById(newTodoId)
+    const statusBtn = todoItem.getElementsByTagName('button')[0]
+    const removeBtn = todoItem.getElementsByTagName('button')[1]
+    // console.log(todoItem)
+    // console.log(statusBtn)
+    // console.log(removeBtn)
     statusBtn.addEventListener('click', notDoneButtonHandler)
     removeBtn.addEventListener('click', removeButtonHandler)
   } else {
     alert('Invalid input!!!')
   }
-  showNumberOfDone(manageTodo.getNumberOfDone())
-  showNumberOfNotDone(manageTodo.getNumberOfNotDone())
+  updateStatus()
 }
 
 function notDoneButtonHandler(event) {
-  showNumberOfDone(manageTodo.getNumberOfDone())
-  showNumberOfNotDone(manageTodo.getNumberOfNotDone())
+  const parentElement = event.target.parentElement
+  console.log(parentElement)
+  const todoId = parentElement.getAttribute('id')
+  //! becareful the type of data that return
+  // console.log(typeof (todoId))
+  manageTodo.setItemToDone(Number(todoId))
+  updateStatus()
 }
 
 function removeButtonHandler(event) {
+  const parentElement = event.target.parentElement
+  console.log(parentElement)
+  const todoId = parentElement.getAttribute('id')
+  //require string or num
+  removeTodoItem(todoId)
+  //require num
+  manageTodo.removeTodo(Number(todoId))
+  updateStatus()
+}
+
+function updateStatus(){
   showNumberOfDone(manageTodo.getNumberOfDone())
   showNumberOfNotDone(manageTodo.getNumberOfNotDone())
 }
