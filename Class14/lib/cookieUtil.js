@@ -20,6 +20,7 @@ class CookieUtil {
     if (expires instanceof Date) {
       cookieText += `;expires=${expires.toISOString()}`
     }
+    console.log(expires)
 
     document.cookie = cookieText
   }
